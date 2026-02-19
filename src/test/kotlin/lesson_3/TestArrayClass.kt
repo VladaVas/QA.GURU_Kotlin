@@ -1,5 +1,7 @@
 package lesson_3
 
+import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
 import io.qameta.allure.Story
@@ -17,14 +19,14 @@ class TestArrayClass {
     @DisplayName("Test checking array is empty")
     fun arrayIsEmpty() {
         val array = arrayOf<Int>()
-        assertTrue(array.isEmpty())
+        array.shouldBeEmpty()
     }
 
     @Test
     @DisplayName("Test checking array is NOT empty")
     fun arrayIsNotEmpty() {
         val array = arrayOf<Int>(1, 2, 3)
-        assertTrue(array.isNotEmpty())
+        array.shouldNotBeEmpty()
     }
 
     @Test
