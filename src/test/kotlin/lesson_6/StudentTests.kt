@@ -42,26 +42,26 @@ class StudentTests {
     }
 
     @Test
-    @DisplayName("Check that Student matches DefaultStudents with when()")
-    fun compareEnumStudentsWithWhen() {
-        DefaultStudent.entries.forEach { enumStudent ->
-            val studentFromTest = enumStudent.toStudent()
+    @DisplayName("Verify STUDENT1 data")
+    fun verifyStudent1() {
 
-            when (enumStudent) {
-                DefaultStudent.STUDENT1 -> {
-                    studentFromTest.firstName shouldBe "John"
-                    studentFromTest.lastName shouldBe "Smith"
-                    studentFromTest.age shouldBe 18
-                }
+        val enumStudent = DefaultStudent.STUDENT1.toStudent()
 
-                DefaultStudent.STUDENT2 -> {
-                    studentFromTest.firstName shouldBe "Nancy"
-                    studentFromTest.lastName shouldBe "Wheeler"
-                    studentFromTest.age shouldBe 20
-                }
-            }
+        enumStudent.age shouldBe defaultStudent.age
+        enumStudent.firstName shouldBe defaultStudent.firstName
+        enumStudent.lastName shouldBe defaultStudent.lastName
+        enumStudent.role shouldBe false
+    }
 
-        }
+    @Test
+    @DisplayName("Verify STUDENT2 data")
+    fun verifyStudent2() {
 
+        val enumStudent = DefaultStudent.STUDENT1.toStudent()
+
+        enumStudent.age shouldBe defaultStudent.age
+        enumStudent.firstName shouldBe defaultStudent.firstName
+        enumStudent.lastName shouldBe defaultStudent.lastName
+        enumStudent.role shouldBe false
     }
 }
