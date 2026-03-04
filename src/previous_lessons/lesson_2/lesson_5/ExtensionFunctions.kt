@@ -1,4 +1,4 @@
-package lesson_5
+package previous_lessons.lesson_2.lesson_5
 
 
 fun String.isPhoneNumberValid(): Boolean {

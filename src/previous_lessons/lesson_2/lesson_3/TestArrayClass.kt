@@ -1,4 +1,4 @@
-package lesson_3
+package previous_lessons.lesson_2.lesson_3
 
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldNotBeEmpty

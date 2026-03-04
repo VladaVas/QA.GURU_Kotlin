@@ -1,4 +1,4 @@
-package lesson_5
+package previous_lessons.lesson_2.lesson_5
 
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

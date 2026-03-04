@@ -1,4 +1,4 @@
-package lesson_4
+package previous_lessons.lesson_2.lesson_4
 
 data class DataClass(
     val id: Int,

@@ -1,4 +1,4 @@
-package lesson_6
+package previous_lessons.lesson_2.lesson_6
 
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
