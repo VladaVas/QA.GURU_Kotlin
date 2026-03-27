@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/testing-playground-backend" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/testing-playground-backend/kotlin-flow-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/testing-playground-backend/testing-playground-backend" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/testing-playground-frontend" vcs="Git" />
   </component>
 </project>

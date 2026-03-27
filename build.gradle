@@ -38,7 +38,7 @@ dependencies {
     implementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '6.0.2'
 
     // Frontend
-    implementation group: 'com.codeborne', name: 'selenide', version: '7.14.0'
+    implementation group: 'com.codeborne', name: 'selenide', version: '7.15.0'
 
     // Backend
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '3.0.0'
