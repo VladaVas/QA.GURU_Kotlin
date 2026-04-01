@@ -4,11 +4,11 @@ import com.codeborne.selenide.Selenide
 import com.codeborne.selenide.Selenide.element
 import io.qameta.allure.Step
 import org.example.frontend.components.HeaderComponent
-import org.example.frontend.helpers.Wrappers.Companion.byDataTestId
+import org.example.frontend.helpers.Wrappers.Companion.byTestId
 
 class MainPage {
 
-    private val txtTitle get() = element(byDataTestId("main-image-text"))
+    private val txtTitle get() = element(byTestId("main-image-text"))
 
 
     @Step("Открыть главную страницу")

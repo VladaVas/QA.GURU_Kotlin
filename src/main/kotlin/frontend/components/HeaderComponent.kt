@@ -3,10 +3,10 @@ package org.example.frontend.components
 import com.codeborne.selenide.Selenide.elements
 import io.kotest.assertions.fail
 import io.qameta.allure.Step
-import org.example.frontend.helpers.Wrappers.Companion.byDataTestGroup
+import org.example.frontend.helpers.Wrappers.Companion.byTestGroup
 
 class HeaderComponent {
-    private val listLinks get() = elements(byDataTestGroup("nav-link"))
+    private val listLinks get() = elements(byTestGroup("nav-link"))
 
     @Step("Нажать на ссылку в шапке: {name}")
     fun clickLink(name: String): HeaderComponent {

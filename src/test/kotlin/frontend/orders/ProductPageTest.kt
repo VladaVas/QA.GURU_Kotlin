@@ -1,5 +1,6 @@
 package frontend.orders
 
+import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
 import org.example.frontend.helpers.BaseUITest
 import org.example.frontend.pages.MainPage
@@ -22,24 +23,25 @@ class ProductPageTest : BaseUITest() {
 
     @Test
     @DisplayName("Проверить название и описание карточки продукта")
-    // Падает с ошибкой expected:<Coca Cola>
-    // but was:<[[data-test-group="product-card-name"].snapshot(6 elements)[0],
-    // [data-test-group="product-card-name"].snapshot(6 elements)[1], [
-    // data-test-group="product-card-name"].snapshot(6 elements)[2],
-    // [data-test-group="product-card-name"].snapshot(6 elements)[3],
-    // [data-test-group="product-card-name"].snapshot(6 elements)[4],
-    // [data-test-group="product-card-name"].snapshot(6 elements)[5]]>
     fun cardName() {
         MainPage()
             .navigateHeader()
             .clickLink("Products")
-        val cardsName = ProductsPage()
-            .getCardName()
+        val cardNames = ProductsPage()
+            .getAllCardNames()
 
+        cardNames shouldContain "Coca Cola"
+    }
+
+    @Test
+    @DisplayName("Проверить название и описание карточки продукта")
+    fun cardDescription() {
+        MainPage()
+            .navigateHeader()
+            .clickLink("Products")
         val cardDescription = ProductsPage()
-            .getCardName()
+            .getCardDescription()
 
-        cardsName shouldBe "Coca Cola"
-        cardDescription shouldBe "A wonderful coca cola for your daily brew."
+        cardDescription shouldContain "A wonderful coca cola for your daily brew."
     }
 }
