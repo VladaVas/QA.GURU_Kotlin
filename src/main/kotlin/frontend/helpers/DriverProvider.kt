@@ -16,7 +16,7 @@ open class DriverProvider : WebDriverProvider {
         Configuration.timeout = 15000
         Configuration.pageLoadStrategy = "normal"
         Configuration.reopenBrowserOnFail = true
-//        Configuration.baseUrl = "https://www.google.com"
+        Configuration.baseUrl = "http://localhost:4000"
     }
 
     override fun createDriver(capabilities: Capabilities): RemoteWebDriver {
@@ -55,8 +55,7 @@ open class DriverProvider : WebDriverProvider {
             }
             else -> throw Error("Browser is not defined")
         }
-            .run { RemoteWebDriver(URI("http://user1:1234@selenoid.autotests.cloud/wd/hub").toURL(), this) }
+            .run { RemoteWebDriver(URI("https://user1:1234@selenoid.autotests.cloud/wd/hub").toURL(), this) }
             .apply { this.fileDetector = LocalFileDetector() }
     }
-
 }

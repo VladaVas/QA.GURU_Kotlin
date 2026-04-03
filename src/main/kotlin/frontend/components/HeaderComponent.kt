@@ -14,7 +14,7 @@ class HeaderComponent {
         return this
     }
 
-    @Step("Получить названия ссылок в шапке")
+    @Step(" ")
     fun getLinksName(): List<String> {
         return listLinks.map { it.text }
     }

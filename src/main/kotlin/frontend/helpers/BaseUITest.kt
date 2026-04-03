@@ -10,7 +10,6 @@ open class BaseUITest {
 
     init {
         Configuration.browser = DriverProvider::class.java.name
-        Configuration.baseUrl = "https://www.google.com"
     }
 
     @BeforeEach

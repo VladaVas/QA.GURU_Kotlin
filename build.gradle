@@ -39,6 +39,7 @@ dependencies {
 
     // Frontend
     implementation group: 'com.codeborne', name: 'selenide', version: '7.15.0'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.5.18'
 
     // Backend
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '3.0.0'
