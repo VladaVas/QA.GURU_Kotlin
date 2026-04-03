@@ -14,9 +14,9 @@ class ParamAuthTest : BaseUITest() {
     @ParameterizedTest
     @CsvSource(
         value = [
-            "'', Username",
-            "'', Password",
-            "'', Please enter username, email and password"
+            "' ', Username",
+            "' ', Password",
+            "' ', Please enter username, email and password"
         ]
     )
     @DisplayName("Проверка валидации: логин/пароль/ошибка - {0}/{1}/{2}")
@@ -24,6 +24,8 @@ class ParamAuthTest : BaseUITest() {
         MainPage()
             .navigateHeader()
             .clickLink("Join")
+        element(byTestId("UserName")).setValue(login)
+        element(byTestId("Password")).setValue(password)
         element(byTestId("active-btn")).click()
 
         element(byTestId("create-error")).text shouldBe error
