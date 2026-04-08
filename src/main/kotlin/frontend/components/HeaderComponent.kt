@@ -3,6 +3,7 @@ package org.example.frontend.components
 import com.codeborne.selenide.Selenide.elements
 import io.kotest.assertions.fail
 import io.qameta.allure.Step
+import org.example.frontend.components.popup.CartPopup
 import org.example.frontend.helpers.Wrappers.Companion.byTestGroup
 
 class HeaderComponent {
@@ -14,7 +15,7 @@ class HeaderComponent {
         return this
     }
 
-    @Step(" ")
+    @Step("Получить список ссылок в шапке")
     fun getLinksName(): List<String> {
         return listLinks.map { it.text }
     }

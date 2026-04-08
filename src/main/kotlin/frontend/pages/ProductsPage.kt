@@ -4,6 +4,8 @@ import com.codeborne.selenide.Selenide.element
 import com.codeborne.selenide.Selenide.elements
 import com.codeborne.selenide.SelenideElement
 import io.qameta.allure.Step
+import org.example.frontend.components.list.ProductItem
+import org.example.frontend.components.list.ProductItems
 import org.example.frontend.helpers.Wrappers.Companion.byTestGroup
 import org.example.frontend.helpers.Wrappers.Companion.byTestId
 
@@ -21,16 +23,26 @@ class ProductsPage {
 
     @Step("Получить список продуктов на странице")
     fun getProductByName(name: String): SelenideElement? {
-       return listItems.firstOrNull { it.text.contains(name) }
+        return listItems.firstOrNull { it.text.contains(name) }
     }
 
     @Step("Получить название карточки продуктов")
     fun getAllCardNames(): List<String> {
-       return listCardNames.map { it.text }.toList()
+        return listCardNames.map { it.text }.toList()
     }
 
     @Step("Получить описание карточки продукта")
     fun getCardDescription(): List<String> {
         return listCardDescription.map { it.text }.toList()
+    }
+
+    @Step("Получить первый продукт на странице")
+    fun getFirstProduct(): ProductItem {
+        return ProductItems().getItems(listItems.first())
+    }
+
+    @Step("Получить все продукты на странице")
+    fun getAllProducts(): List<ProductItem> {
+        return listItems.map { ProductItems().getItems(it) }
     }
 }

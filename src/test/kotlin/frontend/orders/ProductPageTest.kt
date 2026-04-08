@@ -1,14 +1,18 @@
 package frontend.orders
 
 import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.equality.shouldBeEqualToDifferentTypeIgnoringFields
 import io.kotest.matchers.shouldBe
+import org.example.frontend.components.list.ProductItem
 import org.example.frontend.helpers.BaseUITest
 import org.example.frontend.pages.MainPage
 import org.example.frontend.pages.ProductsPage
+import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class ProductPageTest : BaseUITest() {
+
     @Test
     @DisplayName("Проверка заголовка на странице \"Products\"")
     fun productsLTitle() {
@@ -43,5 +47,44 @@ class ProductPageTest : BaseUITest() {
             .getCardDescription()
 
         cardDescription shouldContain "A wonderful coca cola for your daily brew."
+    }
+
+    @Test
+    @DisplayName("Первый популярный продукт совпадает с первым продуктом на странице Products")
+    fun firstPopularMatchesFirstProduct() {
+        val firstPopularItem = MainPage().getFirstPopularProduct()
+
+        MainPage().navigateHeader().clickLink("Products")
+
+        val firstProductItem = ProductsPage().getFirstProduct()
+
+        firstPopularItem.shouldBeEqualToDifferentTypeIgnoringFields(
+            firstProductItem,
+            ProductItem::image,
+            ProductItem::btnDecrement,
+            ProductItem::btnIncrement,
+        )
+    }
+
+    @Test
+    @DisplayName("")
+    fun allPopularMatchesAllProducts() {
+        val allPopularItems = MainPage().getAllPopularProduct()
+
+        MainPage().navigateHeader().clickLink("Products")
+
+        val allProducts = ProductsPage().getAllProducts()
+
+        allPopularItems.forEach { popularItem ->
+            val productFromCatalog = allProducts.firstOrNull { it.name == popularItem.name }
+                ?: fail()
+
+            popularItem.shouldBeEqualToDifferentTypeIgnoringFields(
+                productFromCatalog,
+                ProductItem::image,
+                ProductItem::btnDecrement,
+                ProductItem::btnIncrement,
+            )
+        }
     }
 }

@@ -1,6 +1,3 @@
 package org.example.frontend.helpers
 
-class Extensions {
-
-    companion object {}
-}
+fun String.toPrice(): Float = filter { it.isDigit() }.toFloat() / 100f

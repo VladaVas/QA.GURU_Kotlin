@@ -9,7 +9,10 @@ import org.junit.jupiter.api.BeforeEach
 open class BaseUITest {
 
     init {
-        Configuration.browser = DriverProvider::class.java.name
+        Configuration.timeout = 15000
+        Configuration.pageLoadStrategy = "normal"
+        Configuration.reopenBrowserOnFail = true
+        Configuration.baseUrl = "http://localhost:4000"
     }
 
     @BeforeEach

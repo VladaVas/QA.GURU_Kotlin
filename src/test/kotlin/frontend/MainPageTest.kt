@@ -54,11 +54,11 @@ class MainPageTest : BaseUITest() {
         contact shouldBe "Testing Playground Frontend"
     }
 
-    @Test
-    fun openGoogleTest() {
-        val title = Selenide.title()
-        sleep(15000)
-
-        title shouldBe "Google"
-    }
+//    @Test
+//    fun openGoogleTest() {
+//        val title = Selenide.title()
+//        sleep(15000)
+//
+//        title shouldBe "Google"
+//    }
 }
