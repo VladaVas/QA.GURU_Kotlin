@@ -2,6 +2,7 @@ package frontend.orders
 
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.equality.shouldBeEqualToDifferentTypeIgnoringFields
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.example.frontend.components.list.ProductItem
 import org.example.frontend.helpers.BaseUITest
@@ -67,7 +68,7 @@ class ProductPageTest : BaseUITest() {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("Все популярные продукты совпадают с продуктами на странице Products")
     fun allPopularMatchesAllProducts() {
         val allPopularItems = MainPage().getAllPopularProduct()
 
@@ -76,14 +77,13 @@ class ProductPageTest : BaseUITest() {
         val allProducts = ProductsPage().getAllProducts()
 
         allPopularItems.forEach { popularItem ->
-            val productFromCatalog = allProducts.firstOrNull { it.name == popularItem.name }
-                ?: fail()
-
+            val match = allProducts.find { it.name == popularItem.name }
+            match.shouldNotBeNull()
             popularItem.shouldBeEqualToDifferentTypeIgnoringFields(
-                productFromCatalog,
+                match,
                 ProductItem::image,
                 ProductItem::btnDecrement,
-                ProductItem::btnIncrement,
+                ProductItem::btnIncrement
             )
         }
     }
