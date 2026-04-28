@@ -45,7 +45,10 @@ dependencies {
 
     // Backend
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '3.0.0'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '3.0.0'
+    implementation group: 'tools.jackson.core', name: 'jackson-core', version: '3.1.1'
     implementation group: 'tools.jackson.core', name: 'jackson-databind', version: '3.1.2'
+    implementation group: 'tools.jackson.module', name: 'jackson-module-kotlin', version: '3.1.2'
 
     // Assert
     implementation group: 'io.kotest', name: 'kotest-assertions-core', version: '6.1.1'
@@ -54,4 +57,5 @@ dependencies {
     agent "org.aspectj:aspectjweaver:1.9.22"
     implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.22'
     implementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.32.0'
+    implementation group: 'io.qameta.allure', name: 'allure-okhttp3', version: '2.34.0'
 }

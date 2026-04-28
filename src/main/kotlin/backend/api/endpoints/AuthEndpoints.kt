@@ -1,0 +1,14 @@
+package org.example.backend.api.endpoints
+
+import org.example.backend.api.models.auth.LoginRequest
+import org.example.backend.api.models.auth.LoginResponse
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.POST
+
+interface AuthEndpoints {
+
+    @POST("auth/login")
+    fun postlogin(@Body body: LoginRequest): Call<LoginResponse>
+
+}
